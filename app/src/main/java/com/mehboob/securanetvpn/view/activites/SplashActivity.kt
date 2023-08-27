@@ -5,19 +5,15 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.android.billingclient.api.SkuDetails
 import com.google.android.gms.ads.MobileAds
 import com.mehboob.securanetvpn.AppSettings
-import com.mehboob.securanetvpn.billing.BillingClass
 import com.mehboob.securanetvpn.databinding.ActivitySplashBinding
 import com.onesignal.OneSignal
 
 
-class SplashActivity : AppCompatActivity(), BillingClass.BillingErrorHandler,
-    BillingClass.SkuDetailsListener {
+class SplashActivity : AppCompatActivity() {
 
     private var binding: ActivitySplashBinding?= null
-    private var billingClass: BillingClass? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +23,7 @@ class SplashActivity : AppCompatActivity(), BillingClass.BillingErrorHandler,
 
         initGoogleAds()
         initOneSignal()
-        initBilling()
+startMainActivity()
     }
 
     override fun onDestroy() {
@@ -47,11 +43,7 @@ class SplashActivity : AppCompatActivity(), BillingClass.BillingErrorHandler,
         OneSignal.setAppId(AppSettings.oneSignalId);
     }
 
-    private fun initBilling() {
-        billingClass = BillingClass(this@SplashActivity)
-        billingClass!!.setmCallback(this, this);
-        billingClass!!.startConnection();
-    }
+
 
     private fun startMainActivity() {
         Handler(Looper.myLooper()!!).postDelayed({
@@ -60,27 +52,7 @@ class SplashActivity : AppCompatActivity(), BillingClass.BillingErrorHandler,
         }, 2000)
     }
 
-    override fun displayErrorMessage(message: String?) {
-        when {
-            message.equals("done") -> {
-                AppSettings.isUserPaid =
-                    billingClass!!.isSubscribedToSubscriptionItem(AppSettings.one_month_subscription_id) ||
-                            billingClass!!.isSubscribedToSubscriptionItem(AppSettings.three_month_subscription_id) ||
-                            billingClass!!.isSubscribedToSubscriptionItem(AppSettings.one_year_subscription_id)
 
-                startMainActivity()
-            }
-            message.equals("error") -> {
-                AppSettings.isUserPaid = false;
-                startMainActivity()
-            }
-            else -> {
-                AppSettings.isUserPaid = false;
-                startMainActivity()
-            }
-        }
     }
 
-    override fun subscriptionsDetailList(skuDetailsList: MutableList<SkuDetails>?) {
-    }
-}
+

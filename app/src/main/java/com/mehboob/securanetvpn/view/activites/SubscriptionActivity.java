@@ -5,19 +5,14 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.android.billingclient.api.SkuDetails;
 
 import com.mehboob.securanetvpn.R;
-import com.mehboob.securanetvpn.billing.BillingClass;
 
-import java.util.List;
-
-public class SubscriptionActivity extends AppCompatActivity implements BillingClass.BillingErrorHandler, BillingClass.SkuDetailsListener {
+public class SubscriptionActivity extends AppCompatActivity  {
 
     private ConstraintLayout oneMonthCard, threeMonthsCard, oneYearCard;
     private TextView oneMonthText, threeMonthsText, oneYearText;
@@ -27,7 +22,7 @@ public class SubscriptionActivity extends AppCompatActivity implements BillingCl
     private TextView noThanksText, cancelSubscriptionDetailsText;
     private ImageView backButton;
 
-    private BillingClass billingClass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +31,7 @@ public class SubscriptionActivity extends AppCompatActivity implements BillingCl
 
         initComponents();
 
-        billingClass = new BillingClass(SubscriptionActivity.this);
-        billingClass.setmCallback(this, this);
-        billingClass.startConnection();
+
 
         backButton.setOnClickListener(v -> {
             finish();
@@ -144,92 +137,7 @@ public class SubscriptionActivity extends AppCompatActivity implements BillingCl
         oneYearCheck.setImageResource(R.drawable.empty_circle_subscription);
     }
 
-    private void initClickListeners() {
-        /*
-         * Clicks Implementation
-         * */
-        oneMonthCard.setOnClickListener(view -> {
-            unselectCards();
-            cardsDetails();
-            card1Details();
-            oneMonthCard.setBackground(getResources().getDrawable(R.drawable.subscription_card_bg_dark));
-            try {
-                billingClass.purchaseSubscriptionItemByPos(0);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        threeMonthsCard.setOnClickListener(view -> {
-            unselectCards();
-            cardsDetails();
-            card2Details();
-            threeMonthsCard.setBackground(getResources().getDrawable(R.drawable.subscription_card_bg_dark));
-            try {
-                billingClass.purchaseSubscriptionItemByPos(1);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        oneYearCard.setOnClickListener(view -> {
-            unselectCards();
-            cardsDetails();
-            card3Details();
-            oneYearCard.setBackground(getResources().getDrawable(R.drawable.subscription_card_bg_dark));
-            try {
-                billingClass.purchaseSubscriptionItemByPos(2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        noThanksText.setOnClickListener(view -> finish());
 
-        cancelSubscriptionDetailsText.setOnClickListener(v -> {
-            Intent webActivity = new Intent(SubscriptionActivity.this, loadingWebData.class);
-            webActivity.putExtra("activityName", "Privacy Policy");
-            webActivity.putExtra("webLink", getString(R.string.privacy_policy_link));
-            startActivity(webActivity);
-        });
-    }
 
-    @Override
-    public void displayErrorMessage(String message) {
-        if (message.equals("done")) {
-            initClickListeners();
-        } else if (message.equals("error")) {
-            Toast.makeText(SubscriptionActivity.this, "Error getting billing services", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(SubscriptionActivity.this, "Error getting billing services", Toast.LENGTH_SHORT).show();
-        }
-    }
 
-    @Override
-    public void subscriptionsDetailList(List<SkuDetails> skuDetailsList) {
-        for (int i = 0; i < skuDetailsList.size(); i++) {
-            switch (i) {
-                case 0:
-                    try {
-                        oneMonthPayment.setText(skuDetailsList.get(i).getPrice());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case 1:
-                    try {
-                        threeMonthsPayment.setText(skuDetailsList.get(i).getPrice());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case 2:
-                    try {
-                        oneYearPayment.setText(skuDetailsList.get(i).getPrice());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
 }

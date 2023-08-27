@@ -57,7 +57,8 @@
 
         <provider
             android:name="de.blinkt.openvpn.FileProvider"
-            android:authorities="com.jkenneth.droidovpn.fileprovider"
+            android:authorities="com.jkenneth.droidovpn.fileprovider[com.mehboob.securanetvpn]"
+
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
