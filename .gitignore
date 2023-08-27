@@ -1,0 +1,6 @@
+# Project exclude paths
+/.gradle/
+/nativetemplates/build/
+/nativetemplates/build/intermediates/javac/debug/classes/
+/vpnLib/build/
+/vpnLib/build/intermediates/javac/debug/classes/

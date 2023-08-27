@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "622889426002",
+    "project_id": "securanetvpn",
+    "storage_bucket": "securanetvpn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622889426002:android:87fb14ab967fa4b01c938b",
+        "android_client_info": {
+          "package_name": "com.mehboob.securanetvpn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622889426002-pu9ftk5g91t01jr36e2a12ai01l70dep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mehboob.securanetvpn",
+            "certificate_hash": "59a1de8e5bad28d8e31b340939ecdf50802d256f"
+          }
+        },
+        {
+          "client_id": "622889426002-6sppkvub1iv9v0qr9cv1o4r2a7fe5sdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6ydKmROIF1JwkQo2czZCh8uSEJagUFPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622889426002-6sppkvub1iv9v0qr9cv1o4r2a7fe5sdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
