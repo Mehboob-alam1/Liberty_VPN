@@ -19,9 +19,9 @@
 
 
     <string name="app_version_text" translatable="false">Version 1.0.0</string>
-    <string name="about_app_text" translatable="false">You are using Liberty VPN build v1.0.0, Enjoy unlimited bandwidth with stable connection and a lot of servers to choose from. No limits, No restrictions</string>
+    <string name="about_app_text" translatable="false">You are using SecuraNet VPN build v1.0.0, Enjoy unlimited bandwidth with stable connection and a lot of servers to choose from. No limits, No restrictions</string>
 
-    <string name="app_name_premium">Liberty VPN Premium</string>
+    <string name="app_name_premium">SecuraNet VPN Premium</string>
     <string name="privacy_policy_title" translatable="false">Privacy Policy</string>
     <string name="unlimited_text">Unlimited</string>
     <string name="secure_text">Secure</string>
@@ -69,7 +69,7 @@
     <string name="one_year_text">1 Year</string>
 
     <!--rating dialog-->
-    <string name="feedback_email_subject" translatable="false">Liberty VPN</string>
+    <string name="feedback_email_subject" translatable="false">SecuraNet VPN</string>
 
     <string name="rating_promote">We are working hard for a better user experience. \nWe\'d greatly appreciate if you can rate us.</string>
     <string name="rating_title_1">Oh, no!</string>
@@ -82,13 +82,13 @@
     <string-array name="faq_questions">
         <item>Why I need a VPN?</item>
         <item>Is it safe?</item>
-        <item>How to use Liberty VPN?</item>
-        <item>How to disconnect Liberty VPN?</item>
+        <item>How to use SecuraNet VPN?</item>
+        <item>How to disconnect SecuraNet VPN?</item>
         <item>Can\’t connect, not stable or speed is slow.</item>
         <item>How to switch server location?</item>
         <item>Can\’t find the server you want?</item>
         <item>Why can\'t I use Internet after connection established?</item>
-        <item>How to disable battery optimization for Liberty VPN?</item>
+        <item>How to disable battery optimization for SecuraNet VPN?</item>
         <item>How to cancel the subscription in Google play?</item>
         <item>Can I get refund?</item>
     </string-array>
@@ -101,15 +101,15 @@
         <item>Connection problem is affected by many factors, please update to the latest version, refresh the server list and connect to the top server for few times. If it still does not work for you, please contact us via libertyapps.studio@gmail.com and provide us with your country and network provider name.</item>
         <item>Choose the location you want in the server list, then VPN will connect to the location you click.</item>
         <item>Please contact and provide us the detail website address that you want to unblock via libertyapps.studio@gmail.com We will collect your feedback and improve our product.</item>
-        <item>First of all, check your network connection. Then make sure you\'ve disable battery optimization for Liberty VPN in android\'s battery settings.</item>
-        <item>In most Android devices, Open Settings > Battery > Battery Optimization > Select all apps in drop down menu. Find Liberty VPN and set it "Don\'t optimize".In Huawei devices, Open Setting > Battery > Launch, Find Liberty VPN in the apps list,switch off to "Manage manually", enable "Auto Lunch" and "Run in background". Or you can find battery setting in "Protected Apps".In Samsung devices, Open settings > Battery > App Power Saving > Details, find Liberty VPN in the apps list and disable it.In other devices, you may find it in Setting > Battery > as "Background activity" or "Protected Apps"</item>
+        <item>First of all, check your network connection. Then make sure you\'ve disable battery optimization for SecuraNet VPN in android\'s battery settings.</item>
+        <item>In most Android devices, Open Settings > Battery > Battery Optimization > Select all apps in drop down menu. Find SecuraNet VPN and set it "Don\'t optimize".In Huawei devices, Open Setting > Battery > Launch, Find SecuraNet VPN in the apps list,switch off to "Manage manually", enable "Auto Lunch" and "Run in background". Or you can find battery setting in "Protected Apps".In Samsung devices, Open settings > Battery > App Power Saving > Details, find SecuraNet VPN in the apps list and disable it.In other devices, you may find it in Setting > Battery > as "Background activity" or "Protected Apps"</item>
         <item>Subscriptions on Google Play renew automatically unless you unsubscribe, if you want to unsubscribe, please open Google Play Store, tap Menu-Subscriptions-Tap thesubscription you want to cancel-Tap Cancel subscription. Check the details here: https://support.google.com/googleplay/answer/2476088</item>
         <item>Not cancelling your subscription before the trial period ends will not be refunded. Check the details here: https://support.google.com/googleplay/answer/2476088</item>
     </string-array>
 
     <string name="disconnect_first">In order to change the server, please disconnect the VPN first</string>
-    <string name="share_app_text" translatable="false">Check this awesome free VPN. You can unblock any website and enjoy tons of free server, Download now Liberty VPN</string>
-    <string name="share_msg" translatable="false">Check this awesome free VPN. You can unblock any website and enjoy tons of free server, Download now Liberty VPN</string>
+    <string name="share_app_text" translatable="false">Check this awesome free VPN. You can unblock any website and enjoy tons of free server, Download now SecuraNet VPN</string>
+    <string name="share_msg" translatable="false">Check this awesome free VPN. You can unblock any website and enjoy tons of free server, Download now SecuraNet VPN</string>
 
     <string name="info_dialog_title">Credits</string>
     <string name="info_dialog_details">All of these servers are being provided by the VPN gate project and they are offering their service free of charge. You can read more about the VPN gate project at <a href="https://www.vpngate.net/en/">https://www.vpngate.net/en/</a></string>
@@ -117,10 +117,10 @@
 
     <!--Fields needed to be replaced by user-->
     <!--admob ids-->
-    <string name="admob_app_id">ca-app-pub-3843970042444074~6926767437</string>
-    <string name="admob_interstitial_id">ca-app-pub-3843970042444074/6348182934</string>
-    <string name="admob_banner_id">ca-app-pub-3843970042444074/8974346271</string>
-    <string name="admob_native_id">ca-app-pub-3843970042444074/9028232887</string>
+    <string name="admob_app_id">ca-app-pub-3843970042444074~7651625931</string>
+    <string name="admob_interstitial_id">ca-app-pub-3843970042444074/3663033597</string>
+    <string name="admob_banner_id">ca-app-pub-3843970042444074/2653204255</string>
+    <string name="admob_native_id">ca-app-pub-3843970042444074/2158380234</string>
 
     <!--facebook ids-->
     <string name="facebook_interstitial_id">Your Facebook Interstitial Ad Id</string>

@@ -152,13 +152,13 @@ class HomeFragment : Fragment() {
                 confirmDisconnect()
             }
         }
-        binding!!.subscriptionButton.setOnClickListener {
-            val subscriptionActivity = Intent(mContext, SubscriptionActivity::class.java)
-            startActivity(subscriptionActivity)
-        }
+//        binding!!.subscriptionButton.setOnClickListener {
+//            val subscriptionActivity = Intent(mContext, SubscriptionActivity::class.java)
+//            startActivity(subscriptionActivity)
+//        }
+
 
         loadBannerAd()
-
         loadNativeAd()
         if (!vpnStart) {
             loadInterstitialAd()
@@ -409,22 +409,51 @@ class HomeFragment : Fragment() {
             binding!!.adBlock.visibility = View.GONE
         }
     }
+//
+//    private fun loadNativeAd(){
+//binding!!.nativeAdBlock.visibility=View.VISIBLE;
+//        MobileAds.initialize(mContext)
+//        val adLoader = AdLoader.Builder(mContext, resources.getString(R.string.admob_native_id))
+//            .forNativeAd {
+//                val styles =
+//                    NativeTemplateStyle.Builder().build()
+//
+//           val template: TemplateView= binding!!.root.findViewById(R.id.nativeadsHome)
+//               // val template: TemplateView = binding?.root!!.findViewById(R.id.nativeadsHome)
+//                template.setStyles(styles)
+//                template.setNativeAd(it)
+//            }
+//            .build()
+//
+//        adLoader.loadAd(AdRequest.Builder().build())
+//    }
+private fun loadNativeAd() {
+    // Check if binding is null
+    binding?.let { safeBinding ->
+        // Check if nativeAdBlock is null
+        safeBinding.nativeAdBlock?.visibility = View.VISIBLE
 
-    private fun loadNativeAd(){
-binding!!.nativeAdBlock.visibility=View.VISIBLE;
-        MobileAds.initialize(mContext)
-        val adLoader = AdLoader.Builder(mContext, resources.getString(R.string.admob_native_id))
-            .forNativeAd {
-                val styles =
-                    NativeTemplateStyle.Builder().build()
-                val template: TemplateView = binding?.root!!.findViewById(R.id.nativeads)
-                template.setStyles(styles)
-                template.setNativeAd(it)
-            }
-            .build()
+        // Check if mContext is not null
+        context?.let { mContext ->
+            MobileAds.initialize(mContext)
 
-        adLoader.loadAd(AdRequest.Builder().build())
+            // Check if resources is not null
+            val adLoader = AdLoader.Builder(mContext, resources?.getString(R.string.admob_native_id))
+                .forNativeAd { nativeAd ->
+                    val styles = NativeTemplateStyle.Builder().build()
+
+                    // Check if template is not null
+                    safeBinding.root?.findViewById<TemplateView>(R.id.nativeads)?.apply {
+                        setStyles(styles)
+                        setNativeAd(nativeAd)
+                    }
+                }
+                .build()
+
+            adLoader.loadAd(AdRequest.Builder().build())
+        }
     }
+}
 
     private fun loadAdmobBannerAd() {
         val adview = binding!!.bannerContainerAdmob
