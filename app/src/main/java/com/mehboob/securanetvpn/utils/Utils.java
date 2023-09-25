@@ -6,7 +6,7 @@ import com.mehboob.securanetvpn.R;
 
 
 public class Utils {
-
+public static int GRAD_COLOR=0xFF310BE8;
     /**
      * Convert drawable image resource to string
      *

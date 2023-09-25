@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent" >
 
 
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="@dimen/size_16"
             android:text="@string/app_name"
             android:fontFamily="@font/roboto"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -68,138 +70,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/connection_detail_block"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="@dimen/size_16"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/server_selection_bg"
-        android:clickable="true"
-        android:elevation="2dp"
-        android:padding="@dimen/size_12"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/upload_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/up_down_divider"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/download_detail_block">
-
-            <ImageView
-                android:id="@+id/upload_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_upload_icon"
-                app:layout_constraintEnd_toStartOf="@+id/upload_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorPrimary" />
-
-            <TextView
-                android:id="@+id/upload_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/upload_text"
-                android:fontFamily="@font/roboto"
-                android:textColor="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="@+id/upload_icon"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/upload_icon"
-                app:layout_constraintTop_toTopOf="@+id/upload_icon" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/upload_speed"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/size_6"
-            android:layout_marginEnd="@dimen/size_18"
-            android:gravity="center"
-            android:maxLines="1"
-            android:textColor="@color/grey_10"
-            android:singleLine="true"
-            android:text="@string/zero_text"
-            android:fontFamily="@font/roboto"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/up_down_divider"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/upload_block" />
-
-        <View
-            android:id="@+id/up_down_divider"
-            android:layout_width="2dp"
-            android:layout_height="0dp"
-            android:background="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="@id/download_speed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/download_detail_block" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/download_detail_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_12"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/up_down_divider"
-            app:layout_constraintTop_toTopOf="@+id/upload_block">
-
-            <ImageView
-                android:id="@+id/download_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_download_icon"
-                app:tint="@color/colorPrimary"
-                app:layout_constraintEnd_toStartOf="@+id/download_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/download_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="@string/download_text"
-                android:fontFamily="@font/roboto"
-                android:textColor="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="@+id/download_icon"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/download_icon"
-                app:layout_constraintTop_toTopOf="@+id/download_icon" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/download_speed"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/size_18"
-            android:layout_marginEnd="@dimen/size_6"
-            android:gravity="center_horizontal"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/grey_10"
-            android:text="@string/zero_text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/up_down_divider"
-            app:layout_constraintTop_toBottomOf="@+id/download_detail_block" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/connection_button_details_block"
@@ -208,7 +79,7 @@
         android:layout_marginTop="@dimen/size_16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connection_detail_block">
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/after_connection_detail_block"
@@ -516,7 +387,138 @@ android:layout_marginStart="@dimen/size_16"
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/connection_detail_block"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/size_16"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/server_selection_bg"
+        android:clickable="true"
+        android:elevation="2dp"
+        android:padding="@dimen/size_12"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/native_ad_block">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/upload_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/up_down_divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/download_detail_block">
+
+            <ImageView
+                android:id="@+id/upload_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_upload_icon"
+                app:layout_constraintEnd_toStartOf="@+id/upload_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/upload_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/upload_text"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/upload_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/upload_icon"
+                app:layout_constraintTop_toTopOf="@+id/upload_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/upload_speed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_6"
+            android:layout_marginEnd="@dimen/size_18"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/grey_10"
+            android:singleLine="true"
+            android:text="@string/zero_text"
+            android:fontFamily="@font/roboto"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/up_down_divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upload_block" />
+
+        <View
+            android:id="@+id/up_down_divider"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/download_speed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/download_detail_block" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/download_detail_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/up_down_divider"
+            app:layout_constraintTop_toTopOf="@+id/upload_block">
+
+            <ImageView
+                android:id="@+id/download_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_download_icon"
+                app:tint="@color/colorPrimary"
+                app:layout_constraintEnd_toStartOf="@+id/download_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/download_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/download_text"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/download_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/download_icon"
+                app:layout_constraintTop_toTopOf="@+id/download_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/download_speed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_18"
+            android:layout_marginEnd="@dimen/size_6"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/grey_10"
+            android:text="@string/zero_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/up_down_divider"
+            app:layout_constraintTop_toBottomOf="@+id/download_detail_block" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/disconnect_button"
