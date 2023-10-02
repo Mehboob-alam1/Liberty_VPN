@@ -31,6 +31,7 @@ import com.mehboob.securanetvpn.CheckInternetConnection
 import com.mehboob.securanetvpn.R
 import com.mehboob.securanetvpn.SharedPreference
 import com.mehboob.securanetvpn.databinding.FragmentHomeBinding
+import com.mehboob.securanetvpn.databinding.FragmentHomeeBinding
 import com.mehboob.securanetvpn.model.Server
 import com.mehboob.securanetvpn.utils.toast
 import com.mehboob.securanetvpn.view.activites.ChangeServerActivity
@@ -46,7 +47,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var mContext: Context
 
-    private var binding: FragmentHomeBinding? = null
+    private var binding: FragmentHomeeBinding? = null
     private var connection: CheckInternetConnection? = null
     private var vpnStart = false
 
@@ -74,7 +75,7 @@ class HomeFragment : Fragment() {
                 binding!!.serverFlagName.text = selectedServer.getCountryLong()
                 binding!!.serverFlagDes.text = selectedServer.getIpAddress()
 
-                binding!!.connectionIp.text = selectedServer.getIpAddress()
+                binding!!.disconnectionIp.text = selectedServer.getIpAddress()
                 isServerSelected = true
             }
         }
@@ -108,7 +109,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding = FragmentHomeeBinding.inflate(layoutInflater, container, false)
         return binding!!.root
 
 
@@ -147,7 +148,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding!!.disconnectButton.setOnClickListener {
+        binding!!.disconnectionButtonBlock.setOnClickListener {
             if (vpnStart) {
                 confirmDisconnect()
             }
@@ -158,8 +159,8 @@ class HomeFragment : Fragment() {
 //        }
 
 
-        loadBannerAd()
-        loadNativeAd()
+//        loadBannerAd()
+//        loadNativeAd()
         if (!vpnStart) {
             loadInterstitialAd()
         }
@@ -344,14 +345,14 @@ class HomeFragment : Fragment() {
                 binding!!.serverFlagName.text = globalServer.getCountryLong()
                 binding!!.serverFlagDes.text = globalServer.getIpAddress()
 
-                binding!!.connectionIp.text = globalServer.getIpAddress()
+                binding!!.disconnectionIp.text = globalServer.getIpAddress()
                 isServerSelected = true
 
             } else {
                 binding!!.serverFlagName.text = resources.getString(R.string.country_name)
                 binding!!.serverFlagDes.text = resources.getString(R.string.IP_address)
 
-                binding!!.connectionIp.text = resources.getString(R.string.IP_address)
+                binding!!.disconnectionIp.text = resources.getString(R.string.IP_address)
             }
         }
         super.onResume()
@@ -375,40 +376,49 @@ class HomeFragment : Fragment() {
     }
 
     private fun onConnectionDone() {
-        binding!!.connectionTextBlock.visibility = View.GONE
+        binding!!.connectionTextStatus.visibility = View.GONE
         binding!!.connectionButtonBlock.visibility = View.GONE
         binding!!.serverSelectionBlock.visibility = View.GONE
-
-        binding!!.afterConnectionDetailBlock.visibility = View.VISIBLE
-        binding!!.disconnectButton.visibility = View.VISIBLE
+        binding!!.lineAfterConnect.visibility=View.VISIBLE
+        binding!!.txtConnected.visibility=View.VISIBLE
+binding!!.lineInfo.visibility=View.VISIBLE
+        binding!!.disconnectionButtonBlock.visibility=View.VISIBLE
+        binding!!.dislineAfterConnect.visibility=View.VISIBLE
+//        binding!!.afterConnectionDetailBlock.visibility = View.VISIBLE
+//        binding!!.disconnectButton.visibility = View.VISIBLE
     }
 
     private fun onDisconnectDone() {
-        binding!!.connectionTextBlock.visibility = View.VISIBLE
+        binding!!.connectionTextStatus.visibility = View.VISIBLE
         binding!!.connectionButtonBlock.visibility = View.VISIBLE
         binding!!.serverSelectionBlock.visibility = View.VISIBLE
-        binding!!.afterConnectionDetailBlock.visibility = View.GONE
-        binding!!.disconnectButton.visibility = View.GONE
+        binding!!.lineAfterConnect.visibility=View.VISIBLE
+        binding!!.txtConnected.visibility=View.GONE
+        binding!!.lineInfo.visibility=View.INVISIBLE
+        binding!!.disconnectionButtonBlock.visibility = View.GONE
+        binding!!.dislineAfterConnect.visibility = View.GONE
+//        binding!!.afterConnectionDetailBlock.visibility = View.GONE
+//        binding!!.disconnectButton.visibility = View.GONE
     }
 
-    private fun loadBannerAd() {
-        if (!AppSettings.isUserPaid) {
-            binding!!.adBlock.visibility = View.VISIBLE
-            binding!!.bannerContainerAdmob.visibility = View.GONE
-            binding!!.bannerContainerFacebook.visibility = View.GONE
-
-            if (AppSettings.enableAdmobAds) {
-                binding!!.bannerContainerAdmob.visibility = View.VISIBLE
-                loadAdmobBannerAd()
-
-            } else if (AppSettings.enableFacebookAds) {
-                binding!!.bannerContainerFacebook.visibility = View.VISIBLE
-                loadFacebookBannerAd()
-            }
-        } else {
-            binding!!.adBlock.visibility = View.GONE
-        }
-    }
+//    private fun loadBannerAd() {
+//        if (!AppSettings.isUserPaid) {
+//            binding!!.adBlock.visibility = View.VISIBLE
+//            binding!!.bannerContainerAdmob.visibility = View.GONE
+//            binding!!.bannerContainerFacebook.visibility = View.GONE
+//
+//            if (AppSettings.enableAdmobAds) {
+//                binding!!.bannerContainerAdmob.visibility = View.VISIBLE
+//                loadAdmobBannerAd()
+//
+//            } else if (AppSettings.enableFacebookAds) {
+//                binding!!.bannerContainerFacebook.visibility = View.VISIBLE
+//                loadFacebookBannerAd()
+//            }
+//        } else {
+//            binding!!.adBlock.visibility = View.GONE
+//        }
+//    }
 //
 //    private fun loadNativeAd(){
 //binding!!.nativeAdBlock.visibility=View.VISIBLE;
@@ -427,112 +437,112 @@ class HomeFragment : Fragment() {
 //
 //        adLoader.loadAd(AdRequest.Builder().build())
 //    }
-private fun loadNativeAd() {
-    // Check if binding is null
-    binding?.let { safeBinding ->
-        // Check if nativeAdBlock is null
-        safeBinding.nativeAdBlock?.visibility = View.VISIBLE
-
-        // Check if mContext is not null
-        context?.let { mContext ->
-            MobileAds.initialize(mContext)
-
-            // Check if resources is not null
-            val adLoader = AdLoader.Builder(mContext, resources?.getString(R.string.admob_native_id))
-                .forNativeAd { nativeAd ->
-                    val styles = NativeTemplateStyle.Builder().build()
-
-                    // Check if template is not null
-                    safeBinding.root?.findViewById<TemplateView>(R.id.nativeads)?.apply {
-                        setStyles(styles)
-                        setNativeAd(nativeAd)
-                    }
-                }
-                .build()
-
-            adLoader.loadAd(AdRequest.Builder().build())
-        }
-    }
-}
-
-    private fun loadAdmobBannerAd() {
-        val adview = binding!!.bannerContainerAdmob
-        val adRequest = AdRequest.Builder().build()
-        adview.loadAd(adRequest)
-    }
-
-    private fun loadFacebookBannerAd() {
-        nativeBannerAd =
-            NativeBannerAd(mContext, resources.getString(R.string.facebook_native_banner_id))
-
-        val listener = object : NativeAdListener {
-            override fun onError(p0: Ad?, p1: AdError?) {
-            }
-
-            override fun onAdLoaded(p0: Ad?) {
-                if (nativeBannerAd == null || nativeBannerAd != p0) {
-                    return;
-                }
-                inflateAd(nativeBannerAd!!);
-            }
-
-            override fun onAdClicked(p0: Ad?) {}
-
-            override fun onLoggingImpression(p0: Ad?) {}
-
-            override fun onMediaDownloaded(p0: Ad?) {}
-        }
-        nativeBannerAd!!.loadAd(
-            nativeBannerAd!!.buildLoadAdConfig()
-                .withAdListener(listener)
-                .build()
-        );
-    }
-
-    private fun inflateAd(nativeBannerAd: NativeBannerAd) {
-        // Unregister last ad
-        nativeBannerAd.unregisterView()
-
-        // Add the Ad view into the ad container.
-        nativeAdLayout = binding!!.bannerContainerFacebook
-        val inflater = LayoutInflater.from(mContext)
-        // Inflate the Ad view.  The layout referenced is the one you created in the last step.
-        adView = inflater.inflate(
-            R.layout.native_banner_ad_unit,
-            nativeAdLayout,
-            false
-        ) as LinearLayout
-        nativeAdLayout!!.addView(adView)
-
-        // Add the AdChoices icon
-        val adChoicesContainer: RelativeLayout = adView!!.findViewById(R.id.ad_choices_container)
-        val adOptionsView =
-            AdOptionsView(mContext, nativeBannerAd, nativeAdLayout)
-        adChoicesContainer.removeAllViews()
-        adChoicesContainer.addView(adOptionsView, 0)
-
-        // Create native UI using the ad metadata.
-        val nativeAdTitle: TextView = adView!!.findViewById(R.id.native_ad_title)
-        val nativeAdSocialContext: TextView = adView!!.findViewById(R.id.native_ad_social_context)
-        val sponsoredLabel: TextView = adView!!.findViewById(R.id.native_ad_sponsored_label)
-        val nativeAdIconView: MediaView = adView!!.findViewById(R.id.native_icon_view)
-        val nativeAdCallToAction: Button = adView!!.findViewById(R.id.native_ad_call_to_action)
-
-        // Set the Text.
-        nativeAdCallToAction.setText(nativeBannerAd.adCallToAction)
-        nativeAdCallToAction.setVisibility(
-            if (nativeBannerAd.hasCallToAction()) View.VISIBLE else View.INVISIBLE
-        )
-        nativeAdTitle.setText(nativeBannerAd.advertiserName)
-        nativeAdSocialContext.setText(nativeBannerAd.adSocialContext)
-        sponsoredLabel.setText(nativeBannerAd.sponsoredTranslation)
-
-        // Register the Title and CTA button to listen for clicks.
-        val clickableViews: MutableList<View> = ArrayList()
-        clickableViews.add(nativeAdTitle)
-        clickableViews.add(nativeAdCallToAction)
-        nativeBannerAd.registerViewForInteraction(adView, nativeAdIconView, clickableViews)
-    }
+//private fun loadNativeAd() {
+//    // Check if binding is null
+//    binding?.let { safeBinding ->
+//        // Check if nativeAdBlock is null
+//        safeBinding.nativeAdBlock?.visibility = View.VISIBLE
+//
+//        // Check if mContext is not null
+//        context?.let { mContext ->
+//            MobileAds.initialize(mContext)
+//
+//            // Check if resources is not null
+//            val adLoader = AdLoader.Builder(mContext, resources?.getString(R.string.admob_native_id))
+//                .forNativeAd { nativeAd ->
+//                    val styles = NativeTemplateStyle.Builder().build()
+//
+//                    // Check if template is not null
+//                    safeBinding.root?.findViewById<TemplateView>(R.id.nativeads)?.apply {
+//                        setStyles(styles)
+//                        setNativeAd(nativeAd)
+//                    }
+//                }
+//                .build()
+//
+//            adLoader.loadAd(AdRequest.Builder().build())
+//        }
+//    }
+//}
+//
+//    private fun loadAdmobBannerAd() {
+//        val adview = binding!!.bannerContainerAdmob
+//        val adRequest = AdRequest.Builder().build()
+//        adview.loadAd(adRequest)
+//    }
+//
+//    private fun loadFacebookBannerAd() {
+//        nativeBannerAd =
+//            NativeBannerAd(mContext, resources.getString(R.string.facebook_native_banner_id))
+//
+//        val listener = object : NativeAdListener {
+//            override fun onError(p0: Ad?, p1: AdError?) {
+//            }
+//
+//            override fun onAdLoaded(p0: Ad?) {
+//                if (nativeBannerAd == null || nativeBannerAd != p0) {
+//                    return;
+//                }
+//                inflateAd(nativeBannerAd!!);
+//            }
+//
+//            override fun onAdClicked(p0: Ad?) {}
+//
+//            override fun onLoggingImpression(p0: Ad?) {}
+//
+//            override fun onMediaDownloaded(p0: Ad?) {}
+//        }
+//        nativeBannerAd!!.loadAd(
+//            nativeBannerAd!!.buildLoadAdConfig()
+//                .withAdListener(listener)
+//                .build()
+//        );
+//    }
+//
+//    private fun inflateAd(nativeBannerAd: NativeBannerAd) {
+//        // Unregister last ad
+//        nativeBannerAd.unregisterView()
+//
+//        // Add the Ad view into the ad container.
+//        nativeAdLayout = binding!!.bannerContainerFacebook
+//        val inflater = LayoutInflater.from(mContext)
+//        // Inflate the Ad view.  The layout referenced is the one you created in the last step.
+//        adView = inflater.inflate(
+//            R.layout.native_banner_ad_unit,
+//            nativeAdLayout,
+//            false
+//        ) as LinearLayout
+//        nativeAdLayout!!.addView(adView)
+//
+//        // Add the AdChoices icon
+//        val adChoicesContainer: RelativeLayout = adView!!.findViewById(R.id.ad_choices_container)
+//        val adOptionsView =
+//            AdOptionsView(mContext, nativeBannerAd, nativeAdLayout)
+//        adChoicesContainer.removeAllViews()
+//        adChoicesContainer.addView(adOptionsView, 0)
+//
+//        // Create native UI using the ad metadata.
+//        val nativeAdTitle: TextView = adView!!.findViewById(R.id.native_ad_title)
+//        val nativeAdSocialContext: TextView = adView!!.findViewById(R.id.native_ad_social_context)
+//        val sponsoredLabel: TextView = adView!!.findViewById(R.id.native_ad_sponsored_label)
+//        val nativeAdIconView: MediaView = adView!!.findViewById(R.id.native_icon_view)
+//        val nativeAdCallToAction: Button = adView!!.findViewById(R.id.native_ad_call_to_action)
+//
+//        // Set the Text.
+//        nativeAdCallToAction.setText(nativeBannerAd.adCallToAction)
+//        nativeAdCallToAction.setVisibility(
+//            if (nativeBannerAd.hasCallToAction()) View.VISIBLE else View.INVISIBLE
+//        )
+//        nativeAdTitle.setText(nativeBannerAd.advertiserName)
+//        nativeAdSocialContext.setText(nativeBannerAd.adSocialContext)
+//        sponsoredLabel.setText(nativeBannerAd.sponsoredTranslation)
+//
+//        // Register the Title and CTA button to listen for clicks.
+//        val clickableViews: MutableList<View> = ArrayList()
+//        clickableViews.add(nativeAdTitle)
+//        clickableViews.add(nativeAdCallToAction)
+//        nativeBannerAd.registerViewForInteraction(adView, nativeAdIconView, clickableViews)
+//    }
 
     private fun initFacebookSdk() {
         AudienceNetworkAds.initialize(mContext);
