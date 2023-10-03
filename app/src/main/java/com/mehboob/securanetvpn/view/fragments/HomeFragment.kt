@@ -195,8 +195,8 @@ class HomeFragment : Fragment() {
                 status("Connected")
                 binding!!.connectionTextStatus.text = "Connected"
             }
-            "WAIT" -> binding!!.connectionTextStatus.text = "Waiting for server connection"
-            "AUTH" -> binding!!.connectionTextStatus.text = "Authenticating server"
+            "WAIT" -> binding!!.connectionTextStatus.text = "Waiting for server connection...."
+            "AUTH" -> binding!!.connectionTextStatus.text = "Authenticating server.."
             "RECONNECTING" -> {
                 status("Connecting")
                 binding!!.connectionTextStatus.text = "Reconnecting..."

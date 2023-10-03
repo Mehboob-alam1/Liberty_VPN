@@ -28,10 +28,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="10dp"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_marginRight="10dp"
                 android:layout_toStartOf="@+id/headerIndicator"
                 android:layout_toLeftOf="@+id/headerIndicator"
-                android:textColor="@color/colorDarkGray"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -69,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/content_text"
-                android:textColor="@color/colorLightGray"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
         </LinearLayout>
