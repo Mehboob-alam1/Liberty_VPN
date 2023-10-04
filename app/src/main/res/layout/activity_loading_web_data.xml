@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="Back Press"
-            android:src="@drawable/ic_back_arrow" />
+            android:src="@drawable/ic_back_arrow"
+            app:tint="@color/colortext" />
 
         <TextView
             android:id="@+id/activity_name"
@@ -26,7 +27,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/privacy_policy_title"
-            android:textColor="@color/white"
+            android:textColor="@color/colortext"
             android:textSize="18sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>

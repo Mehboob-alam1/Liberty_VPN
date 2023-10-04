@@ -10,10 +10,10 @@
     <color name="colorPrimaryLightest">#8200FF</color>
     <color name="colorPrimaryDark">#8200FF</color>
     <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
+<!--    <color name="white">#FFFFFF</color>-->
 
-    <color name="grey_10">#e6e6e6</color>
-    <color name="grey_40">#999999</color>
+<!--    <color name="grey_10">#e6e6e6</color>-->
+<!--    <color name="grey_40">#999999</color>-->
     <color name="grey_60">#666666</color>
     <color name="grey_80">#37474F</color>
     <color name="grey_90">#666666</color>
@@ -23,8 +23,11 @@
 
     <!--App Main Colors-->
     <color name="colorDarkGray">#1c1c1c</color>
+    <color name="colortext">#ffff</color>
     <color name="colorLightGray">#434645</color>
-    <color name="colortext">#000000</color>
-    <color name="colorback">#ffff</color>
+    <color name="colorback">#1c1c1c</color>
+
+
+
 
 </resources>

@@ -32,7 +32,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_toStartOf="@+id/headerIndicator"
                 android:layout_toLeftOf="@+id/headerIndicator"
-                android:textColor="@color/white"
+                android:textColor="@color/colortext"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -61,7 +61,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#EEE"
+            android:background="@color/colorback"
             android:orientation="vertical">
 
             <TextView
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/content_text"
-                android:textColor="@color/black"
+                android:textColor="@color/colortext"
                 android:textSize="14sp" />
 
         </LinearLayout>
