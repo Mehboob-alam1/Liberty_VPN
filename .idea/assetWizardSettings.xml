@@ -90,8 +90,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$USER_HOME$/Downloads/logovpn.png" />
-                                                <entry key="scalingPercent" value="101" />
+                                                <entry key="imagePath" value="$USER_HOME$/Downloads/vpn_logo.png" />
                                               </map>
                                             </option>
                                           </PersistentState>

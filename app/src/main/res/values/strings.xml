@@ -121,10 +121,15 @@
 <!--    <string name="admob_interstitial_id">ca-app-pub-3843970042444074/3663033597</string>-->
 <!--    <string name="admob_banner_id">ca-app-pub-3843970042444074/2653204255</string>-->
 <!--    <string name="admob_native_id">ca-app-pub-3843970042444074/2158380234</string>-->
-    <string name="admob_app_id">ca-app-pub-3843970042444074~7651625933</string>
-    <string name="admob_interstitial_id">ca-app-pub-3843970042444074/3663033593</string>
-    <string name="admob_banner_id">ca-app-pub-3843970042444074/2653204253</string>
-    <string name="admob_native_id">ca-app-pub-3843970042444074/2158380233</string>
+<!--    <string name="admob_app_id">ca-app-pub-3843970042444074~7651625933</string>-->
+<!--    <string name="admob_interstitial_id">ca-app-pub-3843970042444074/3663033593</string>-->
+<!--    <string name="admob_banner_id">ca-app-pub-3843970042444074/2653204253</string>-->
+<!--    <string name="admob_native_id">ca-app-pub-3843970042444074/2158380233</string>-->
+
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_native_id">ca-app-pub-3940256099942544/2247696110</string>
     <!--facebook ids-->
     <string name="facebook_interstitial_id">Your Facebook Interstitial Ad Id</string>
     <string name="facebook_native_banner_id">Your Facebook Native Banner Ad Id</string>

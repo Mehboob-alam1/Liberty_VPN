@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorback"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/web_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorback"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -18,7 +19,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="Back Press"
             android:src="@drawable/ic_back_arrow"
-            app:tint="@color/colortext" />
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/activity_name"
@@ -49,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_alignParentLeft="true"
+
         android:layout_alignParentTop="true"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
