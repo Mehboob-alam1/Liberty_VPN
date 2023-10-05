@@ -10,7 +10,7 @@
         android:id="@+id/faq_toolbar"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/rect">
+      >
 
         <ImageView
             android:id="@+id/faq_back_button"

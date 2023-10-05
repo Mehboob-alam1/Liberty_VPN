@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorback"
     tools:context=".view.activites.SplashActivity">
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colortext"
         android:textStyle="bold"
         android:text="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"

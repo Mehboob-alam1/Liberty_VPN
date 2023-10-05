@@ -19,6 +19,7 @@
         tools:replace="android:extractNativeLibs">
         <activity
             android:name="com.mehboob.securanetvpn.view.activites.SplashActivity"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

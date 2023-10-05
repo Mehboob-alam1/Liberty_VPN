@@ -21,6 +21,7 @@ import com.google.android.gms.ads.MobileAds
 import com.mehboob.securanetvpn.AppSettings
 import com.mehboob.securanetvpn.R
 import com.mehboob.securanetvpn.databinding.FragmentMenuBinding
+import com.mehboob.securanetvpn.databinding.FragmentMenueBinding
 import com.mehboob.securanetvpn.dialogs.RateDialog
 import com.mehboob.securanetvpn.view.activites.SubscriptionActivity
 import com.mehboob.securanetvpn.view.activites.faq_activity
@@ -29,7 +30,7 @@ import com.mehboob.securanetvpn.view.activites.loadingWebData
 class MenuFragment : Fragment() {
 
     private lateinit var mContext: Context
-    private var binding: FragmentMenuBinding? = null
+    private var binding: FragmentMenueBinding? = null
 
     //facebook and google ads
     private var nativeAdLayout: NativeAdLayout? = null
@@ -52,18 +53,15 @@ class MenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentMenuBinding.inflate(layoutInflater, container, false)
+        binding = FragmentMenueBinding.inflate(layoutInflater, container, false)
         loadBannerAd()
 
-        loadNativeAd()
+      //  loadNativeAd()
         return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding!!.drawerPremiumItem.setOnClickListener {
-            val subscriptionActivity = Intent(mContext, SubscriptionActivity::class.java)
-            startActivity(subscriptionActivity)
-        }
+
         binding!!.drawerShareItem.setOnClickListener {
             shareApp()
         }
@@ -83,21 +81,21 @@ class MenuFragment : Fragment() {
         }
         super.onViewCreated(view, savedInstanceState)
     }
-    private fun loadNativeAd(){
-        binding!!.nativeAdBlock.visibility=View.VISIBLE;
-        MobileAds.initialize(mContext)
-        val adLoader = AdLoader.Builder(mContext, resources.getString(R.string.admob_native_id))
-            .forNativeAd {
-                val styles =
-                    NativeTemplateStyle.Builder().build()
-                val template: TemplateView = binding?.root!!.findViewById(R.id.nativeads)
-                template.setStyles(styles)
-                template.setNativeAd(it)
-            }
-            .build()
-
-        adLoader.loadAd(AdRequest.Builder().build())
-    }
+//    private fun loadNativeAd(){
+//        binding!!.nativeAdBlock.visibility=View.VISIBLE;
+//        MobileAds.initialize(mContext)
+//        val adLoader = AdLoader.Builder(mContext, resources.getString(R.string.admob_native_id))
+//            .forNativeAd {
+//                val styles =
+//                    NativeTemplateStyle.Builder().build()
+//                val template: TemplateView = binding?.root!!.findViewById(R.id.nativeads)
+//                template.setStyles(styles)
+//                template.setNativeAd(it)
+//            }
+//            .build()
+//
+//        adLoader.loadAd(AdRequest.Builder().build())
+//    }
     private fun showAboutDialog() {
         val dialog = Dialog(mContext)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE) // before
@@ -124,7 +122,7 @@ class MenuFragment : Fragment() {
         val msg = StringBuilder()
         msg.append(getString(R.string.share_msg))
         msg.append("\n")
-        msg.append("https://play.google.com/store/apps/details?id=com.snaptube.savevideos.all.videos.downloader2020.allvideodownload")
+        msg.append("https://play.google.com/store/apps/details?id=com.mehboob.securanetvpn")
         val sendIntent = Intent()
         sendIntent.action = Intent.ACTION_SEND
         sendIntent.putExtra(Intent.EXTRA_TEXT, msg.toString())
@@ -136,15 +134,15 @@ class MenuFragment : Fragment() {
         if (!AppSettings.isUserPaid) {
             binding!!.menuBannerBlock.visibility = View.VISIBLE
             binding!!.menuBannerContainerAdmob.visibility = View.GONE
-            binding!!.menuBannerContainerFacebook.visibility = View.GONE
+
 
             if (AppSettings.enableAdmobAds) {
                 binding!!.menuBannerContainerAdmob.visibility = View.VISIBLE
                 loadAdmobBannerAd()
 
             } else if (AppSettings.enableFacebookAds) {
-                binding!!.menuBannerContainerFacebook.visibility = View.VISIBLE
-                loadFacebookBannerAd()
+
+               // loadFacebookBannerAd()
             }
         } else {
             binding!!.menuBannerBlock.visibility = View.GONE
@@ -189,7 +187,7 @@ class MenuFragment : Fragment() {
         nativeBannerAd.unregisterView()
 
         // Add the Ad view into the ad container.
-        nativeAdLayout = binding!!.menuBannerContainerFacebook
+
         val inflater = LayoutInflater.from(mContext)
         // Inflate the Ad view.  The layout referenced is the one you created in the last step.
         adView = inflater.inflate(
