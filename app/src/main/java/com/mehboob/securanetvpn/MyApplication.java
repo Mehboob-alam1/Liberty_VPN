@@ -67,7 +67,7 @@ public interface OnShowAdCompleteListener {
 private class AppOpenAdManager {
 
     private static final String LOG_TAG = "AppOpenAdManager";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/3419835294";
+    private static final String AD_UNIT_ID = "ca-app-pub-3843970042444074/7392444903";
 
     private AppOpenAd appOpenAd = null;
     private boolean isLoadingAd = false;
